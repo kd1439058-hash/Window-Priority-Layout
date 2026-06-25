@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
+using Window_Priority_Layout.Core;
 
 namespace Window_Priority_Layout
 {
@@ -15,6 +10,19 @@ namespace Window_Priority_Layout
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var c = new WindowCollector();
+            var windows = c.GetVisibleWindow();
+
+            foreach (var win in windows)
+            {
+                // Visual Studio の「出力」ウィンドウに表示される
+                MessageBox.Show($"Title: {win.Title} | Process: {win.ProcessName}");
+            }
+          
         }
     }
 }
