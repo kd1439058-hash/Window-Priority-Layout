@@ -32,20 +32,20 @@ namespace Window_Priority_Layout.Core
             //ウィンドウが表示されていないならtrueを返す。（trueなら続行）
             if (!Win32API.IsWindowVisible(hWnd)) return true;
 
-            // ウィンドウのタイトルを取得
+            // ウィンドウのタイトルを取得する箱
             var title_buf = new StringBuilder(256);
             // 取得したタイトルをtitle_bufに格納(hWnd: ウィンドウのハンドル, title_buf: タイトルを格納するバッファ, title_buf.Capacity: バッファの容量)
             Win32API.GetWindowText(hWnd, title_buf, title_buf.Capacity);
             string title = title_buf.ToString();
 
             // タイトルが空文字列またはnullならtrueを返す。（trueなら続行）
-            if (title.Length == 0||title==null) return true;
+            if (title == null||title.Length == 0) return true;
 
             // ウィンドウのプロセス名を取得
             string processName = GetProcessName(hWnd);
 
             // プロセス名が空文字列またはnullならtrueを返す。（trueなら続行）
-            if (processName.Length == 0||processName==null) return true;
+            if (processName == null|| processName.Length == 0) return true;
             // ウィンドウ情報をリスト（windowlist）にWinInfoのクラスで追加
             windowlist.Add(new WinInfo
             {
