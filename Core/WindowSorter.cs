@@ -8,7 +8,7 @@ namespace Window_Priority_Layout.Core
     {
         public List<SortRule> rules;
 
-        private WindowSorter(List<SortRule> ruless)
+        public WindowSorter(List<SortRule> ruless)
         {
             rules = ruless;
         }
