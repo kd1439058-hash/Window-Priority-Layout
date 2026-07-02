@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\SlotConfig.cs" />
+    <Compile Include="Core\LayoutAssigner.cs" />
     <Compile Include="Core\WindowCollector.cs" />
+    <Compile Include="Core\WindowMover.cs" />
     <Compile Include="Core\WindowSorter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
