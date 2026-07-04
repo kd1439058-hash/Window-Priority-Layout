@@ -38,6 +38,9 @@ namespace Window_Priority_Layout.Core
             Win32API.GetWindowText(hWnd, title_buf, title_buf.Capacity);
             string title = title_buf.ToString();
 
+            // タイトルが"Program Manager"ならtrueを返す。（trueなら続行）
+            if (title == "Program Manager") return true;
+
             // タイトルが空文字列またはnullならtrueを返す。（trueなら続行）
             if (title == null||title.Length == 0) return true;
 
@@ -60,16 +63,24 @@ namespace Window_Priority_Layout.Core
 
         public string GetProcessName(IntPtr hWnd)
         {
-            // ウィンドウのプロセスIDを取得
-            uint Id;
+            try
+            {
+                // ウィンドウのプロセスIDを取得
+                uint Id;
+                // GetWindowThreadProcessId関数を使用して、ウィンドウのプロセスIDを取得
+                Win32API.GetWindowThreadProcessId(hWnd, out Id);
+                // プロセスIDからプロセス名を取得
+                var process = Process.GetProcessById((int)Id);
+                return process.ProcessName;
 
-            // GetWindowThreadProcessId関数を使用して、ウィンドウのプロセスIDを取得
-            Win32API.GetWindowThreadProcessId(hWnd, out Id);
-            // プロセスIDからプロセス名を取得
-            var process = Process.GetProcessById((int)Id);
-
-            return process.ProcessName;
+            }
+            catch (Exception ex)
+            {
+                return "unknown"; // エラー時は"unknown"を返す
+            }
         }
+
+        
 
 
 

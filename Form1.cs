@@ -13,6 +13,7 @@ namespace Window_Priority_Layout
     {
         private HotkeyManager _hotkeyManager = new HotkeyManager();
         private RulesStore _store = new RulesStore();
+        private LayoutStore _layoutStore = new LayoutStore();
         public Form1()
         {
             InitializeComponent();
@@ -61,12 +62,13 @@ namespace Window_Priority_Layout
                 new SortRule { Keyword = "Gemini", Priority = 5,  Target = MatchTarget.ProcessName },
             };*/
             // スロットのリストを作成する
-            var slots = new List<LayoutSlot>
+            var slots = _layoutStore.Load();
+            /*var slots = new List<LayoutSlot>
             {
                 new LayoutSlot { X = 0,   Y = 0, Width = 560, Height = 300, Label = "メイン" },
                 new LayoutSlot { X = 560, Y = 0, Width = 260, Height = 300,  Label = "サブ上" },
                 new LayoutSlot { X = 820, Y = 0, Width = 100, Height = 300, Label = "サブ下" },
-            };
+            };*/
             // WindowCollector クラスのインスタンスを作成し、
             // GetVisibleWindow メソッドを呼び出して、現在表示されているウィンドウの情報を取得する
             var c = new WindowCollector();
@@ -96,5 +98,11 @@ namespace Window_Priority_Layout
             var ruleSetting = new RuleSetting();
             ruleSetting.ShowDialog();
         }
-    }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var layoutSetting = new LayoutSetting();
+            layoutSetting.ShowDialog();
+        }
+}
 }

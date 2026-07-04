@@ -72,7 +72,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnAdd.Location = new System.Drawing.Point(70, 418);
+            this.btnAdd.Location = new System.Drawing.Point(12, 418);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(136, 56);
             this.btnAdd.TabIndex = 2;
@@ -83,7 +83,7 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnEdit.Location = new System.Drawing.Point(212, 418);
+            this.btnEdit.Location = new System.Drawing.Point(154, 418);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(136, 53);
             this.btnEdit.TabIndex = 3;
@@ -94,7 +94,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnDelete.Location = new System.Drawing.Point(354, 415);
+            this.btnDelete.Location = new System.Drawing.Point(296, 415);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(136, 56);
             this.btnDelete.TabIndex = 4;
@@ -105,7 +105,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnSave.Location = new System.Drawing.Point(496, 414);
+            this.btnSave.Location = new System.Drawing.Point(438, 414);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(132, 53);
             this.btnSave.TabIndex = 5;
@@ -149,13 +149,13 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Priority";
+            this.columnHeader6.Text = "判定順";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnMoveup
             // 
             this.btnMoveup.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnMoveup.Location = new System.Drawing.Point(634, 414);
+            this.btnMoveup.Location = new System.Drawing.Point(576, 414);
             this.btnMoveup.Name = "btnMoveup";
             this.btnMoveup.Size = new System.Drawing.Size(132, 53);
             this.btnMoveup.TabIndex = 8;
@@ -166,7 +166,7 @@
             // btnMovedown
             // 
             this.btnMovedown.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnMovedown.Location = new System.Drawing.Point(772, 414);
+            this.btnMovedown.Location = new System.Drawing.Point(714, 414);
             this.btnMovedown.Name = "btnMovedown";
             this.btnMovedown.Size = new System.Drawing.Size(132, 53);
             this.btnMovedown.TabIndex = 9;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 497);
+            this.ClientSize = new System.Drawing.Size(864, 497);
             this.Controls.Add(this.btnMovedown);
             this.Controls.Add(this.btnMoveup);
             this.Controls.Add(this.listRules);
@@ -188,6 +188,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ListRunning);
             this.Name = "RuleSetting";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RuleSetting";
             this.Load += new System.EventHandler(this.RuleSetting_Load);
             this.ResumeLayout(false);

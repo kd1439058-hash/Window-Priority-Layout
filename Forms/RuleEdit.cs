@@ -71,5 +71,20 @@ namespace Window_Priority_Layout.Forms
                 Target = radioTitle.Checked ? MatchTarget.Title : MatchTarget.ProcessName
             }; 
         }
+
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numPriority_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RuleEdit_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

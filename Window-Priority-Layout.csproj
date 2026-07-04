@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\LayoutAssigner.cs" />
+    <Compile Include="Core\LayoutStore.cs" />
     <Compile Include="Core\RulesStore.cs" />
     <Compile Include="Core\WindowCollector.cs" />
     <Compile Include="Core\WindowMover.cs" />
@@ -59,6 +60,18 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LayoutEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LayoutEdit.Designer.cs">
+      <DependentUpon>LayoutEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LayoutSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LayoutSetting.Designer.cs">
+      <DependentUpon>LayoutSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RuleEdit.cs">
       <SubType>Form</SubType>
@@ -72,6 +85,9 @@
     <Compile Include="Forms\RuleSetting.Designer.cs">
       <DependentUpon>RuleSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SlotPlaceholder.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Hotkeys\HotkeyManager.cs" />
     <Compile Include="Models\LayoutSlot.cs" />
     <Compile Include="Models\SortRule.cs" />
@@ -81,6 +97,12 @@
     <Compile Include="Win32\Win32API.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LayoutEdit.resx">
+      <DependentUpon>LayoutEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LayoutSetting.resx">
+      <DependentUpon>LayoutSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RuleEdit.resx">
       <DependentUpon>RuleEdit.cs</DependentUpon>

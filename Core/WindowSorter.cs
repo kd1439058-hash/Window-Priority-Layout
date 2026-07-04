@@ -6,11 +6,11 @@ namespace Window_Priority_Layout.Core
 {
     internal class WindowSorter
     {
-        public List<SortRule> rules;
+        private List<SortRule> _rules;
 
-        public WindowSorter(List<SortRule> ruless)
+        public WindowSorter(List<SortRule> rules)
         {
-            rules = ruless;
+            _rules = rules;
         }
 
         //引数のウィンドウリストを優先度順にソートして返す
@@ -32,7 +32,7 @@ namespace Window_Priority_Layout.Core
         //ウィンドウの優先度を計算して返す
         private int GetPriority(WinInfo win)
         {
-            foreach(var rule in rules)
+            foreach(var rule in _rules)
             {
                 //個別のターゲットがtitleなら今回のターゲットはタイトル、そうでなければプロセス名
                 string target = rule.Target == MatchTarget.Title ? win.Title : win.ProcessName;

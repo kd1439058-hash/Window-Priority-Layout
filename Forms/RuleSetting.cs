@@ -64,11 +64,11 @@ namespace Window_Priority_Layout.Forms
             for(int i=0;i < _rules.Count; i++)
             {
                 var rule = _rules[i];
-
-                var item = new ListViewItem((i+1).ToString());
+                
+                var item = new ListViewItem(rule.Priority.ToString());
                 item.SubItems.Add(rule.Keyword);
                 item.SubItems.Add(rule.Target.ToString());
-                item.SubItems.Add(rule.Priority.ToString());
+                item.SubItems.Add((i + 1).ToString());
                 listRules.Items.Add(item);
             }
         }

@@ -14,14 +14,13 @@ namespace Window_Priority_Layout.Core
         public List<SortRule> Load()
         {
             // ファイルが存在しない場合は空のリストを返す
-            if (!File.Exists(FilePath))
-            {
-                return new List<SortRule>();
-            }
+            if (!File.Exists(FilePath)) return new List<SortRule>();
+
             // ファイルが存在する場合は、JSON形式で保存されたルールを読み込む
             string json = File.ReadAllText(FilePath);
-            // JSONをList<SortRule>に変換して返す
-            return JsonConvert.DeserializeObject<List<SortRule>>(json);
+            var result = JsonConvert.DeserializeObject<List<SortRule>>(json);
+            // ルールがnullの場合は空のリストを返す
+            return result ?? new List<SortRule>();
         }
         
         public void Save(List<SortRule> rules)
