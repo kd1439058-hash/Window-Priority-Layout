@@ -74,7 +74,7 @@ namespace Window_Priority_Layout.Core
                 return process.ProcessName;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "unknown"; // エラー時は"unknown"を返す
             }

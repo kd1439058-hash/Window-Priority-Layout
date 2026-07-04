@@ -48,7 +48,7 @@
             this.listSlots.HoverSelection = true;
             this.listSlots.Location = new System.Drawing.Point(12, 12);
             this.listSlots.Name = "listSlots";
-            this.listSlots.Size = new System.Drawing.Size(136, 426);
+            this.listSlots.Size = new System.Drawing.Size(164, 426);
             this.listSlots.TabIndex = 0;
             this.listSlots.UseCompatibleStateImageBehavior = false;
             this.listSlots.View = System.Windows.Forms.View.Details;

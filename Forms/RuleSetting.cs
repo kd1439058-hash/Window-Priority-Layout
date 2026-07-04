@@ -47,14 +47,7 @@ namespace Window_Priority_Layout.Forms
         {
             _rules.Sort((a, b) => b.Priority.CompareTo(a.Priority));
         }
-        /*private void RePriority()
-        {
-            int total=_rules.Count;
-            for (int i = 0; i < _rules.Count; i++)
-            {
-                _rules[i].Priority = total - i;
-            }
-        }*/
+
 
         // ソートルールのリストを更新するメソッド
         private void RefreshRuleList()
@@ -108,7 +101,6 @@ namespace Window_Priority_Layout.Forms
                 _rules.Add(ruleAdd.GetResult());
                 SortRulesByPriority();
                 RefreshRuleList();
-               // _store.Save(_rules); // ルールを保存)
             }
         }
 
@@ -155,17 +147,9 @@ namespace Window_Priority_Layout.Forms
                 MessageBox.Show(ex.Message);
 
             }
-    }
+         }
 
-        private void listRules_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnMoveup_Click(object sender, EventArgs e)
         {

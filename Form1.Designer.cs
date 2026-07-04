@@ -29,56 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.menuOpenSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuArrangeNow = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpenRuleSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOpenLayoutSetting = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.trayMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 96);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ソート";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(1, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(787, 310);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(213, 345);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 96);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "ソート設定";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(405, 342);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 96);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "レイアウト設定";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // notifyIcon1
             // 
@@ -89,18 +48,39 @@
             // 
             this.trayMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuOpenSettings,
+            this.menuArrangeNow,
+            this.menuOpenRuleSetting,
+            this.menuOpenLayoutSetting,
+            this.toolStripSeparator1,
             this.menuExit});
             this.trayMenu.Name = "trayMenu";
-            this.trayMenu.Size = new System.Drawing.Size(241, 101);
-            this.trayMenu.Opening += new System.ComponentModel.CancelEventHandler(this.trayMenu_Opening);
+            this.trayMenu.Size = new System.Drawing.Size(186, 138);
             // 
-            // menuOpenSettings
+            // menuArrangeNow
             // 
-            this.menuOpenSettings.Name = "menuOpenSettings";
-            this.menuOpenSettings.Size = new System.Drawing.Size(240, 32);
-            this.menuOpenSettings.Text = "設定を開く";
-            this.menuOpenSettings.Click += new System.EventHandler(this.menuOpenSettings_Click);
+            this.menuArrangeNow.Name = "menuArrangeNow";
+            this.menuArrangeNow.Size = new System.Drawing.Size(240, 32);
+            this.menuArrangeNow.Text = "ソート";
+            this.menuArrangeNow.Click += new System.EventHandler(this.menuArrangeNow_Click);
+            // 
+            // menuOpenRuleSetting
+            // 
+            this.menuOpenRuleSetting.Name = "menuOpenRuleSetting";
+            this.menuOpenRuleSetting.Size = new System.Drawing.Size(240, 32);
+            this.menuOpenRuleSetting.Text = "ルール設定";
+            this.menuOpenRuleSetting.Click += new System.EventHandler(this.menuOpenRuleSetting_Click);
+            // 
+            // menuOpenLayoutSetting
+            // 
+            this.menuOpenLayoutSetting.Name = "menuOpenLayoutSetting";
+            this.menuOpenLayoutSetting.Size = new System.Drawing.Size(240, 32);
+            this.menuOpenLayoutSetting.Text = "レイアウト設定";
+            this.menuOpenLayoutSetting.Click += new System.EventHandler(this.menuOpenLayoutSetting_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
             // 
             // menuExit
             // 
@@ -113,29 +93,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(396, 296);
             this.Name = "Form1";
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_closing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.trayMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip trayMenu;
-        private System.Windows.Forms.ToolStripMenuItem menuOpenSettings;
+        private System.Windows.Forms.ToolStripMenuItem menuArrangeNow;
+        private System.Windows.Forms.ToolStripMenuItem menuOpenRuleSetting;
+        private System.Windows.Forms.ToolStripMenuItem menuOpenLayoutSetting;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
     }
 }

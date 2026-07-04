@@ -17,10 +17,14 @@ namespace Window_Priority_Layout
         public Form1()
         {
             InitializeComponent();
+            Opacity = 0; // フォームを透明にする
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+     
+
+
             bool registered = _hotkeyManager.Register(this.Handle, (uint)Keys.X);
 
             if (!registered)
@@ -31,7 +35,18 @@ namespace Window_Priority_Layout
             notifyIcon1.Icon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             notifyIcon1.Visible = true;
 
-            notifyIcon1.DoubleClick += (s,args) => ShowMainWindow();
+            notifyIcon1.DoubleClick += (s, args) => { 
+                var ruleSetting = new RuleSetting(); 
+                ruleSetting.ShowDialog(); 
+            };
+            
+
+
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private void Form1_closing(object sender, FormClosingEventArgs e)
@@ -48,9 +63,22 @@ namespace Window_Priority_Layout
 
         private bool _isExiting = false;
 
-        private void menuOpenSettings_Click(object sender, EventArgs e)
+
+        private void menuArrangeNow_Click(object sender, EventArgs e)
         {
-            ShowMainWindow();
+            ArrangeWindows();
+        }
+
+        private void menuOpenRuleSetting_Click(object sender, EventArgs e)
+        {
+            var ruleSetting = new RuleSetting();
+            ruleSetting.ShowDialog();
+        }
+
+        private void menuOpenLayoutSetting_Click(object sender, EventArgs e)
+        {
+            var layoutSetting = new LayoutSetting();
+            layoutSetting.ShowDialog();
         }
 
         private void menuExit_Click(object sender, EventArgs e)
@@ -77,17 +105,12 @@ namespace Window_Priority_Layout
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ArrangeWindows();
-
-        }
 
         private void ArrangeWindows()
         {
-            var rules = _store.Load();
             // ウィンドウのソートルールを定義する
-            
+            var rules = _store.Load();
+
             // スロットのリストを作成する
             var slots = _layoutStore.Load();
            
@@ -95,41 +118,20 @@ namespace Window_Priority_Layout
             // GetVisibleWindow メソッドを呼び出して、現在表示されているウィンドウの情報を取得する
             var c = new WindowCollector();
             var windows = c.GetVisibleWindow();
+
             //windowsorter クラスのインスタンスを作成し、Sort メソッドを呼び出して、取得したウィンドウ情報をルールに基づいてソートする
             var sorter = new WindowSorter(rules);
             var sortedWIndows = sorter.Sort(windows);
+
             // LayoutAssigner クラスのインスタンスを作成し、Assign メソッドを呼び出して、ソートされたウィンドウ情報をスロットに割り当てる
             var assigner = new LayoutAssigner();
             var assigned = assigner.Assign(slots, sortedWIndows);
+
+            // WindowMover クラスのインスタンスを作成し、MoveWindows メソッドを呼び出して、割り当てられたウィンドウ情報を実際に移動させる
             var mover = new WindowMover();
             mover.MoveWindows(assigned);
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var ruleSetting = new RuleSetting();
-            ruleSetting.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var layoutSetting = new LayoutSetting();
-            layoutSetting.ShowDialog();
-        }
-
-        private void trayMenu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
     }
 }
