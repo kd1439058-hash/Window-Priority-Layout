@@ -10,6 +10,8 @@ namespace Window_Priority_Layout.Core
         {
             foreach (var SW in assigned)
             {
+
+                Win32API.ShowWindow(SW.Window.Handle, Win32API.SW_RESTORE);
                 Win32API.MoveWindow(
                     SW.Window.Handle,
                     SW.Slot.X,

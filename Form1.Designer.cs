@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuOpenSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.trayMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -74,6 +80,35 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.trayMenu;
+            this.notifyIcon1.Text = "Window Priority Layout";
+            // 
+            // trayMenu
+            // 
+            this.trayMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.trayMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOpenSettings,
+            this.menuExit});
+            this.trayMenu.Name = "trayMenu";
+            this.trayMenu.Size = new System.Drawing.Size(241, 101);
+            this.trayMenu.Opening += new System.ComponentModel.CancelEventHandler(this.trayMenu_Opening);
+            // 
+            // menuOpenSettings
+            // 
+            this.menuOpenSettings.Name = "menuOpenSettings";
+            this.menuOpenSettings.Size = new System.Drawing.Size(240, 32);
+            this.menuOpenSettings.Text = "設定を開く";
+            this.menuOpenSettings.Click += new System.EventHandler(this.menuOpenSettings_Click);
+            // 
+            // menuExit
+            // 
+            this.menuExit.Name = "menuExit";
+            this.menuExit.Size = new System.Drawing.Size(240, 32);
+            this.menuExit.Text = "終了";
+            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -87,6 +122,7 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_closing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.trayMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -97,6 +133,10 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip trayMenu;
+        private System.Windows.Forms.ToolStripMenuItem menuOpenSettings;
+        private System.Windows.Forms.ToolStripMenuItem menuExit;
     }
 }
 
